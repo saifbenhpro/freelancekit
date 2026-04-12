@@ -1,31 +1,30 @@
-# 💸 FreelanceKit — Générateur de devis
+# FreelanceKit — Générateur de devis
 
-![Version](https://img.shields.io/badge/version-0.9.0-blue)
 ![NestJS](https://img.shields.io/badge/NestJS-11-red)
 ![React](https://img.shields.io/badge/React-19-61dafb)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
 ![Prisma](https://img.shields.io/badge/Prisma-6-2D3748)
 ![MUI](https://img.shields.io/badge/MUI-7-0081CB)
 
-Application web fullstack permettant aux freelances de créer, gérer et partager des devis professionnels.
+En tant que freelance, envoyer un devis propre ne devrait pas être une galère. FreelanceKit est une app fullstack pour créer, gérer et partager des devis en quelques clics — avec génération PDF, lien de partage public et suivi des statuts.
 
 ---
 
-## ✨ Fonctionnalités
+## Ce que ça fait
 
-- **Authentification** — Register / Login avec JWT (7 jours)
-- **Gestion clients** — CRUD complet, recherche par SIRET via API gouvernementale, auto-remplissage des informations entreprise
-- **Devis** — Création avec lignes dynamiques, unités, remises par ligne, numérotation automatique (`DEVIS-YYYY-XXXX`)
-- **Drag & drop** — Réorganisation des lignes de devis à la souris
-- **Suivi statuts** — Brouillon → Envoyé → Accepté / Refusé
-- **Dashboard** — Suivi par client avec accordéons, CA accepté, devis en attente
-- **Export PDF** — Génération client-side avec `@react-pdf/renderer`, template A4 propre
-- **Partage public** — Lien unique par devis (`/preview/:shareToken`), accessible sans compte
-- **Profil freelance** — SIRET, société, téléphone, adresse
+- **Compte sécurisé** — inscription / connexion avec JWT, session de 7 jours
+- **Clients** — ajout rapide avec recherche SIRET (API gouvernementale), auto-remplissage des infos entreprise
+- **Devis** — lignes dynamiques, unités, remises par ligne, numérotation automatique (`DEVIS-YYYY-XXXX`)
+- **Drag & drop** — réorganise les lignes à la souris sans friction
+- **Suivi** — Brouillon → Envoyé → Accepté / Refusé
+- **Dashboard** — CA accepté, devis en attente, vue par client
+- **Export PDF** — template A4 propre, généré côté client, aucun serveur tiers
+- **Partage public** — un lien unique par devis, le client consulte sans créer de compte
+- **Profil freelance** — SIRET, société, téléphone, adresse sur chaque devis
 
 ---
 
-## 🛠 Stack technique
+## Stack
 
 | Couche | Technologie |
 |--------|-------------|
@@ -41,7 +40,7 @@ Application web fullstack permettant aux freelances de créer, gérer et partage
 
 ---
 
-## 📁 Structure
+## Structure du projet
 
 ```
 freelancekit/
@@ -71,7 +70,7 @@ freelancekit/
 
 ---
 
-## 🐳 Lancer avec Docker (recommandé)
+## Lancer avec Docker (recommandé)
 
 ```bash
 cp .env.example .env
@@ -82,11 +81,11 @@ docker compose up --build
 - Backend → **http://localhost:3001**
 - MySQL → `localhost:3307`
 
-La migration Prisma est appliquée automatiquement au démarrage du backend.
+Les migrations Prisma sont appliquées automatiquement au démarrage.
 
 ---
 
-## 🚀 Lancer en local (sans Docker)
+## Lancer en local
 
 ### Prérequis
 
@@ -98,7 +97,7 @@ La migration Prisma est appliquée automatiquement au démarrage du backend.
 ```bash
 cd backend
 cp .env.example .env
-# Remplir DATABASE_URL et JWT_SECRET dans .env
+# Remplir DATABASE_URL et JWT_SECRET
 npm install
 npx prisma migrate dev
 npm run start:dev
@@ -109,16 +108,16 @@ npm run start:dev
 ```bash
 cd frontend
 cp .env.example .env.local
-# Remplir VITE_API_URL=http://localhost:3001/api
+# VITE_API_URL=http://localhost:3001/api
 npm install
 npm run dev
 ```
 
-L'app est accessible sur **http://localhost:5173**
+App disponible sur **http://localhost:5173**
 
 ---
 
-## 🌍 Variables d'environnement
+## Variables d'environnement
 
 ### Backend (`backend/.env`)
 
@@ -136,7 +135,7 @@ VITE_API_URL=http://localhost:3001/api
 
 ---
 
-## 📦 API endpoints
+## API
 
 | Méthode | Route | Auth | Description |
 |---------|-------|------|-------------|
@@ -157,22 +156,6 @@ VITE_API_URL=http://localhost:3001/api
 
 ---
 
-## 🗂 Versioning
-
-| Tag | Contenu |
-|-----|---------|
-| `v0.1.0` | Auth backend (register/login/JWT) |
-| `v0.2.0` | Clients & Quotes CRUD backend |
-| `v0.3.0` | Frontend setup + Auth + Dashboard + Clients |
-| `v0.4.0` | Éditeur de devis |
-| `v0.5.0` | Partage public + preview |
-| `v0.6.0` | Génération PDF |
-| `v0.7.0` | Profil + SIRET autocomplete + dashboard client |
-| `v0.8.0` | UI Polish |
-| `v0.9.0` | Éditeur enrichi (DnD, unités, remises) |
-
----
-
-## 📄 Licence
+## Licence
 
 MIT
