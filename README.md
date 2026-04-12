@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-0.9.0-blue)
 ![NestJS](https://img.shields.io/badge/NestJS-11-red)
-![React](https://img.shields.io/badge/React-18-61dafb)
+![React](https://img.shields.io/badge/React-19-61dafb)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
 ![Prisma](https://img.shields.io/badge/Prisma-6-2D3748)
 ![MUI](https://img.shields.io/badge/MUI-7-0081CB)
@@ -32,7 +32,7 @@ Application web fullstack permettant aux freelances de créer, gérer et partage
 | Backend | NestJS 11 + TypeScript |
 | Base de données | MySQL 8 + Prisma 6 |
 | Auth | JWT + bcrypt + Passport |
-| Frontend | React 18 + Vite + TypeScript |
+| Frontend | React 19 + Vite + TypeScript |
 | UI | Material UI (MUI) v7 |
 | Formulaires | React Hook Form + Zod |
 | PDF | @react-pdf/renderer v4 |
