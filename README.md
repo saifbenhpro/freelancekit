@@ -6,7 +6,22 @@
 ![Prisma](https://img.shields.io/badge/Prisma-6-2D3748)
 ![MUI](https://img.shields.io/badge/MUI-7-0081CB)
 
+**Demo live → [freelancekit-m2x34ds2d-saifbenhpros-projects.vercel.app](https://freelancekit-m2x34ds2d-saifbenhpros-projects.vercel.app/login)**
+
 En tant que freelance, envoyer un devis propre ne devrait pas être une galère. FreelanceKit est une app fullstack pour créer, gérer et partager des devis en quelques clics — avec génération PDF, lien de partage public et suivi des statuts.
+
+---
+
+## Aperçu
+
+| | |
+|---|---|
+| ![Dashboard](docs/screenshots/dashboard.png) | ![Éditeur de devis](docs/screenshots/devis-editor.png) |
+| *Tableau de bord — suivi par client* | *Éditeur de devis avec drag & drop* |
+| ![Nouveau devis](docs/screenshots/devis-new.png) | ![Export PDF](docs/screenshots/pdf-export.png) |
+| *Création d'un devis* | *Export PDF A4* |
+| ![Ajout client SIRET](docs/screenshots/clients-add.png) | ![Profil freelance](docs/screenshots/profile.png) |
+| *Recherche client par SIRET* | *Profil freelance* |
 
 ---
 
