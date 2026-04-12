@@ -1,0 +1,72 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id          String   @id @default(uuid()) @db.VarChar(36)
+  email       String   @unique @db.VarChar(255)
+  password    String   @db.VarChar(255)
+  name        String   @db.VarChar(255)
+  companyName String?  @db.VarChar(255)
+  siret       String?  @db.VarChar(14)
+  phone       String?  @db.VarChar(20)
+  address     String?  @db.Text
+  quotes      Quote[]
+  clients     Client[]
+  createdAt   DateTime @default(now())
+}
+
+model Client {
+  id          String  @id @default(uuid()) @db.VarChar(36)
+  name        String  @db.VarChar(255)
+  companyName String? @db.VarChar(255)
+  siret       String? @db.VarChar(14)
+  email       String? @db.VarChar(255)
+  phone       String? @db.VarChar(20)
+  address     String? @db.Text
+  userId      String  @db.VarChar(36)
+  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quotes      Quote[]
+}
+
+model Quote {
+  id         String      @id @default(uuid()) @db.VarChar(36)
+  number     String      @unique @db.VarChar(50)
+  status     QuoteStatus @default(DRAFT)
+  clientId   String      @db.VarChar(36)
+  client     Client      @relation(fields: [clientId], references: [id])
+  userId     String      @db.VarChar(36)
+  user       User        @relation(fields: [userId], references: [id])
+  lines      QuoteLine[]
+  taxRate    Float       @default(20)
+  validUntil DateTime?
+  shareToken String?     @unique @db.VarChar(36)
+  note       String?     @db.Text
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+}
+
+model QuoteLine {
+  id          String  @id @default(uuid()) @db.VarChar(36)
+  description String  @db.VarChar(500)
+  detail      String? @db.Text
+  quantity    Float
+  unit        String  @default("") @db.VarChar(50)
+  unitPrice   Float
+  discount    Float   @default(0)
+  order       Int     @default(0)
+  quoteId     String  @db.VarChar(36)
+  quote       Quote   @relation(fields: [quoteId], references: [id], onDelete: Cascade)
+}
+
+enum QuoteStatus {
+  DRAFT
+  SENT
+  ACCEPTED
+  REFUSED
+}

@@ -1,0 +1,10 @@
+-- AlterTable
+ALTER TABLE `Client` ADD COLUMN `companyName` VARCHAR(255) NULL,
+    ADD COLUMN `phone` VARCHAR(20) NULL,
+    ADD COLUMN `siret` VARCHAR(14) NULL;
+
+-- AlterTable
+ALTER TABLE `User` ADD COLUMN `address` TEXT NULL,
+    ADD COLUMN `companyName` VARCHAR(255) NULL,
+    ADD COLUMN `phone` VARCHAR(20) NULL,
+    ADD COLUMN `siret` VARCHAR(14) NULL;
